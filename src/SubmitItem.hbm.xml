@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="xxd.nju.homework.model.SubmitItemBean" table="submititem">
+		<id name="submitItemID" column="submitItemID" type="java.lang.String" />
+		<property name="participateID" column="participateID" type="java.lang.String" />
+		<property name="submitItem" column="submitItem" type="java.lang.String" />
+		<property name="useMoney" column="useMoney" type="java.lang.Double" />
+		<property name="submitState" column="submitState" type="java.lang.String" />
+	</class>
+</hibernate-mapping>

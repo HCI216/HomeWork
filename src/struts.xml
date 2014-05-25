@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+
+	<package name="admin" namespace="/admin" extends="struts-default">
+		<action name="adminlogin" class="AdminLoginAction" method="execute">
+			<result name="SUCCESS">/admin/main.jsp</result>
+			<result name="FAIL">/admin/login.jsp</result>
+		</action>
+		<action name="register" class="UserRegisterAction" method="execute">
+			<result name="SUCCESS">/admin/main.jsp</result>
+			<result name="FAIL">/admin/register.jsp</result>
+		</action>
+		<action name="deleteuser" class="DeleteUserAction" method="execute">
+			<result name="SUCCESS">/admin/main_user.jsp</result>
+			<result name="FAIL">/admin/main_user.jsp</result>
+		</action>
+		<action name="modify" class="ModifyAction" method="execute">
+			<result name="SUCCESS">/admin/main_modifyUser.jsp</result>
+			<result name="FAIL">/admin/main_modifyUser.jsp</result>
+		</action>
+		<action name="modifyuser" class="ModifyUserAction" method="execute">
+			<result name="SUCCESS">/admin/main_user.jsp</result>
+			<result name="FAIL">/admin/main_modifyUser.jsp</result>
+		</action>
+		<action name="deleteproject" class="DeleteProjectAction"
+			method="execute">
+			<result name="SUCCESS">/admin/main_project.jsp</result>
+			<result name="FAIL">/admin/main_project.jsp</result>
+		</action>
+		<action name="modifyproject" class="ModifyProjectAction"
+			method="execute">
+			<result name="SUCCESS">/admin/main_modifyProject.jsp</result>
+			<result name="FAIL">/admin/main_project.jsp</result>
+		</action>
+		<action name="addProject" class="AddProjectAction" method="execute">
+			<result name="SUCCESS">/admin/main_project.jsp</result>
+			<result name="FAIL">/admin/main_addProject.jsp</result>
+		</action>
+		<action name="changeProject" class="ChangeProjectAction"
+			method="execute">
+			<result name="SUCCESS">/admin/main_project.jsp</result>
+			<result name="FAIL">/admin/main_modifyProject.jsp</result>
+		</action>
+	</package>
+
+	<package name="normaluser" namespace="/normaluser" extends="struts-default">
+		<action name="submitItem" class="SubmitItemAction" method="execute">
+			<result name="SUCCESS">/normaluser/submitItem.jsp</result>
+			<result name="FAIL">/normaluser/submitItem.jsp</result>
+		</action>
+		<action name="submit" class="SubmitAction" method="execute">
+			<result name="SUCCESS">/normaluser/main_submit.jsp</result>
+			<result name="FAIL">/normaluser/submitItem.jsp</result>
+		</action>
+		<action name="normaluserlogin" class="NormalUserLoginAction"
+			method="execute">
+			<result name="SUCCESS">/normaluser/main.jsp</result>
+			<result name="FAIL">/normaluser/login.jsp</result>
+		</action>
+		<action name="addParticipate" class="AddParticipateAction"
+			method="execute">
+			<result name="SUCCESS">/normaluser/main_host.jsp</result>
+			<result name="FAIL">/normaluser/main_addParticipate.jsp</result>
+		</action>
+		
+		<action name="normaluserCheck" class="NormalUserCheckSubmitItemAction"
+			method="execute">
+			<result name="SUCCESS">/normaluser/main_check.jsp</result>
+			<result name="FAIL">/normaluser/main_check.jsp</result>
+		</action>
+		
+	</package>
+
+	<package name="financer" namespace="/financer" extends="struts-default">
+		<action name="financerlogin" class="FinancerLoginAction">
+			<result name="SUCCESS">/financer/main.jsp</result>
+			<result name="FAIL">/financer/login.jsp</result>
+		</action>
+		<action name="financerconfirm" class="FinancerConfirmAction">
+			<result name="SUCCESS">/financer/main_check.jsp</result>
+			<result name="FAIL">/financer/main_check.jsp</result>
+		</action>
+		<action name="financercancel" class="FinancerCancelAction">
+			<result name="SUCCESS">/financer/main_check.jsp</result>
+			<result name="FAIL">/financer/main_check.jsp</result>
+		</action>
+	</package>
+
+	<package name="financeManager" namespace="/financeManager" extends="struts-default">
+		<action name="financeManagerlogin" class="FinanceManagerLoginAction">
+			<result name="SUCCESS">/financeManager/main.jsp</result>
+			<result name="FAIL">/financeManager/login.jsp</result>
+		</action>
+	</package>
+
+</struts>

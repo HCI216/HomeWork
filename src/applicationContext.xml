@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
+           http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.0.xsd
+           http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.0.xsd">
+
+
+
+
+	<!-- 配置sessionFactory -->
+	<bean id="BaseDao" class="xxd.nju.homework.dao.impl.BaseDaoImpl">
+	</bean>
+
+	<bean id="UserDao" class="xxd.nju.homework.dao.impl.UserDaoImpl">
+		<property name="BaseDao">
+			<ref bean="BaseDao" />
+		</property>
+	</bean>
+
+	<bean id="ProjectDao" class="xxd.nju.homework.dao.impl.ProjectDaoImpl">
+		<property name="BaseDao">
+			<ref bean="BaseDao" />
+		</property>
+	</bean>
+
+	<bean id="ParticipateDao" class="xxd.nju.homework.dao.impl.ParticipateDaoImpl">
+		<property name="BaseDao">
+			<ref bean="BaseDao" />
+		</property>
+	</bean>
+
+	<bean id="SubmitItemDao" class="xxd.nju.homework.dao.impl.SubmitItemDaoImpl">
+		<property name="BaseDao">
+			<ref bean="BaseDao" />
+		</property>
+	</bean>
+
+
+	<bean id="UserService" class="xxd.nju.homework.service.impl.UserServiceImpl">
+		<property name="UserDao">
+			<ref bean="UserDao" />
+		</property>
+	</bean>
+
+	<bean id="ProjectService" class="xxd.nju.homework.service.impl.ProjectServiceImpl">
+		<property name="ProjectDao">
+			<ref bean="ProjectDao" />
+		</property>
+	</bean>
+
+	<bean id="SubmitItemService" class="xxd.nju.homework.service.impl.SubmitItemServiceImpl">
+		<property name="SubmitItemDao">
+			<ref bean="SubmitItemDao" />
+		</property>
+		<property name="ParticipateDao">
+			<ref bean="ParticipateDao" />
+		</property>
+	</bean>
+
+	<bean id="ParticipateService" class="xxd.nju.homework.service.impl.ParticipateServiceImpl">
+		<property name="ParticipateDao">
+			<ref bean="ParticipateDao" />
+		</property>
+	</bean>
+
+
+	<bean id="AdminLoginAction" class="xxd.nju.homework.action.AdminLoginAction">
+		<property name="UserService">
+			<ref bean="UserService" />
+		</property>
+	</bean>
+	<bean id="UserRegisterAction" class="xxd.nju.homework.action.UserRegisterAction">
+		<property name="UserService">
+			<ref bean="UserService" />
+		</property>
+	</bean>
+	<bean id="DeleteUserAction" class="xxd.nju.homework.action.DeleteUserAction">
+		<property name="UserService">
+			<ref bean="UserService" />
+		</property>
+	</bean>
+	<bean id="ModifyUserAction" class="xxd.nju.homework.action.ModifyUserAction">
+		<property name="UserService">
+			<ref bean="UserService" />
+		</property>
+	</bean>
+	<bean id="ModifyAction" class="xxd.nju.homework.action.ModifyAction">
+		<property name="UserService">
+			<ref bean="UserService" />
+		</property>
+	</bean>
+	<bean id="DeleteProjectAction" class="xxd.nju.homework.action.DeleteProjectAction">
+		<property name="ProjectService">
+			<ref bean="ProjectService" />
+		</property>
+	</bean>
+
+	<bean id="ModifyProjectAction" class="xxd.nju.homework.action.ModifyProjectAction">
+		<property name="ProjectService">
+			<ref bean="ProjectService" />
+		</property>
+	</bean>
+	<bean id="AddProjectAction" class="xxd.nju.homework.action.AddProjectAction">
+		<property name="ProjectService">
+			<ref bean="ProjectService" />
+		</property>
+	</bean>
+	<bean id="ChangeProjectAction" class="xxd.nju.homework.action.ChangeProjectAction">
+		<property name="ProjectService">
+			<ref bean="ProjectService" />
+		</property>
+	</bean>
+	<bean id="SubmitItemAction" class="xxd.nju.homework.action.SubmitItemAction">
+		<property name="ProjectService">
+			<ref bean="ProjectService" />
+		</property>
+	</bean>
+	<bean id="NormalUserLoginAction" class="xxd.nju.homework.action.NormalUserLoginAction">
+		<property name="UserService">
+			<ref bean="UserService" />
+		</property>
+	</bean>
+	<bean id="SubmitAction" class="xxd.nju.homework.action.SubmitAction">
+		<property name="SubmitItemService">
+			<ref bean="SubmitItemService" />
+		</property>
+		<property name="ParticipateService">
+			<ref bean="ParticipateService" />
+		</property>
+	</bean>
+
+	<bean id="FinancerLoginAction" class="xxd.nju.homework.action.FinancerLoginAction">
+		<property name="UserService">
+			<ref bean="UserService" />
+		</property>
+	</bean>
+
+
+	<bean id="FinanceManagerLoginAction" class="xxd.nju.homework.action.FinanceManagerLoginAction">
+		<property name="UserService">
+			<ref bean="UserService" />
+		</property>
+	</bean>
+
+	<bean id="AddParticipateAction" class="xxd.nju.homework.action.AddParticipateAction">
+		<property name="ParticipateService">
+			<ref bean="ParticipateService" />
+		</property>
+	</bean>
+
+	<bean name="job1" class="org.springframework.scheduling.quartz.JobDetailBean">
+		<property name="jobClass" value="TimerJobBean" />
+		<property name="jobDataAsMap">
+			<map>
+				<entry key="timeout" value="0" />
+			</map>
+		</property>
+	</bean>
+
+	<bean id="cronTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+		<property name="jobDetail" ref="job1" />
+
+		<property name="cronExpression" value="0,10,20,30,40,50 * * * * ?" />
+	</bean>
+
+	<bean class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+		<property name="triggers">
+			<list>
+				<ref bean="cronTrigger" />
+			</list>
+		</property>
+	</bean>
+
+
+
+	<bean id="NormalUserCheckSubmitItemAction" class="xxd.nju.homework.action.NormalUserCheckSubmitItemAction">
+		<property name="SubmitItemService">
+			<ref bean="SubmitItemService" />
+		</property>
+	</bean>
+
+
+	<bean id="FinancerConfirmAction" class="xxd.nju.homework.action.FinancerConfirmAction">
+		<property name="SubmitItemService">
+			<ref bean="SubmitItemService" />
+		</property>
+	</bean>
+
+	<bean id="FinancerCancelAction" class="xxd.nju.homework.action.FinancerCancelAction">
+		<property name="SubmitItemService">
+			<ref bean="SubmitItemService" />
+		</property>
+	</bean>
+
+</beans>

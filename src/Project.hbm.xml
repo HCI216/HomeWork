@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="xxd.nju.homework.model.ProjectBean" table="project">
+		<id name="projectID" column="projectID" type="java.lang.String" />
+		<property name="projectHostID" column="projectHostID" type="java.lang.String" />
+		<property name="budget" column="budget" type="java.lang.Double" />
+		<property name="projectDate" column="projectDate" type="java.lang.String" />
+		<property name="projectState" column="projectState" type="java.lang.String" />
+		<property name="submitFood" column="food" type="java.lang.String" />
+		<property name="submitTransportation" column="transportation" type="java.lang.String" />
+		<property name="submitDevice" column="device" type="java.lang.String" />
+		
+	</class>
+</hibernate-mapping>

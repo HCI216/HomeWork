@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="xxd.nju.homework.model.ParticipateBean" table="participate">
+		<id name="participateID" column="participateID" type="java.lang.String" />
+		<property name="projectID" column="projectID" type="java.lang.String" />
+		<property name="userID" column="userID" type="java.lang.String" />
+		<property name="giveMoney" column="giveMoney" type="java.lang.Double" />
+	</class>
+</hibernate-mapping>

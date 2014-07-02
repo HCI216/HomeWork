@@ -14,6 +14,9 @@
 <%@page import="xxd.nju.homework.service.impl.UserServiceImpl"%>
 <%@page import="java.util.*"%>
 <%@page import="xxd.nju.homework.model.SubmitItemBean"%>
+<%@page import="xxd.nju.homework.dao.ProjectDao"%>
+<%@page import="xxd.nju.homework.dao.impl.ProjectDaoImpl"%>
+<%@page import="xxd.nju.homework.model.ProjectBean"%>
 
 <%
 	String userId = (String) request.getSession().getAttribute(
@@ -21,6 +24,7 @@
 	SubmitItemDao submitItemDao = new SubmitItemDaoImpl();
 	UserDao userDao = new UserDaoImpl();
 	ParticipateDao participateDao = new ParticipateDaoImpl();
+	ProjectDao projectDao = new ProjectDaoImpl();
 	ArrayList<SubmitItemBean> itemList = submitItemDao
 			.getSubmitItemByID(userId);
 
@@ -42,7 +46,7 @@
 <meta name="description" content="">
 <meta name="author" content="">
 
-<title>Homework</title>
+<title>Submit Items</title>
 
 <link href="../css/bootstrap.css" rel="stylesheet">
 <link href="../css/admin-main.css" rel="stylesheet">
@@ -56,12 +60,13 @@
 		<div class="masthead">
 			<h3 class="text-muted">Welcome!</h3>
 			<ul class="nav nav-justified">
-				<li><a href="/Homework/normaluser/main.jsp">Home</a></li>
-				<li><a href="/Homework/normaluser/main_host.jsp">Host</a></li>
-				<li><a href="/Homework/normaluser/main_participate.jsp">Participate</a></li>
+				<li><a href="/Homework/normaluser/main_host.jsp">Host
+						Projects</a></li>
+				<li><a href="/Homework/normaluser/main_participate.jsp">Participate
+						Projects</a></li>
 				<li class="active"><a
-					href="/Homework/normaluser/main_submit.jsp">Submit</a></li>
-				<li><a href="/Homework/normaluser/main_check.jsp">Check</a></li>
+					href="/Homework/normaluser/main_submit.jsp">SubmittedItems</a></li>
+				<li><a href="/Homework/normaluser/main_check.jsp">NeedToCheck</a></li>
 
 			</ul>
 		</div>
@@ -71,6 +76,7 @@
 				<%
 					if (itemList.size() == 0) {
 				%>
+				<!-- TODO -->
 				<h1>No SubmitItem Is Available !!</h1>
 				<%
 					} else {
@@ -79,7 +85,7 @@
 					<tr>
 						<th>SubmitItemID</th>
 						<th>ProjectID</th>
-						<th>Name</th>
+						<th>HostName</th>
 						<th>Item</th>
 						<th>SubmitMoney</th>
 						<th>State</th>
@@ -94,27 +100,31 @@
 										item.getParticipateID()).getUserID();
 								String projectID = participateDao.getParticipateByID(
 										item.getParticipateID()).getProjectID();
-						%>
+
+								ProjectBean project = projectDao.getProjectByID(projectID);
+								String hostID = project.getProjectHostID();
+								String hostName = userDao.getNameByID(hostID);
+					%>
 					<tr>
 						<td><%=item.getSubmitItemID()%></td>
 						<td><%=projectID%></td>
-						<td><%=userName%></td>
+						<td><%=hostName%>(<%=hostID%>)</td>
 						<td><%=item.getSubmitItem()%></td>
 						<td><%=item.getUseMoney()%></td>
 						<%
-						if(item.getSubmitState().equals("SUCCESS")){
+							if (item.getSubmitState().equals("SUCCESS")) {
 						%>
 						<td>SUCCESS</td>
 						<%
-						}else if(item.getSubmitState().equals("REWRITE")){
+							} else if (item.getSubmitState().equals("REWRITE")) {
 						%>
 						<td>FAIL</td>
 						<%
-						}else{
+							} else {
 						%>
 						<td>SUBMITING</td>
 						<%
-						}
+							}
 						%>
 					</tr>
 					<%
@@ -168,7 +178,7 @@
 			</div>
 		</div>
 		<div class="footer">
-			<p>© xxd 2013</p>
+			<p style="text-align: center">© xxd 2013</p>
 		</div>
 	</div>
 </body>

@@ -40,7 +40,7 @@
 <meta name="description" content="">
 <meta name="author" content="">
 
-<title>Homework</title>
+<title>Check</title>
 
 <link href="../css/bootstrap.css" rel="stylesheet">
 <link href="../css/admin-main.css" rel="stylesheet">
@@ -54,12 +54,13 @@
 		<div class="masthead">
 			<h3 class="text-muted">Welcome!</h3>
 			<ul class="nav nav-justified">
-				<li><a href="/Homework/normaluser/main.jsp">Home</a></li>
-				<li><a href="/Homework/normaluser/main_host.jsp">Host</a></li>
-				<li><a href="/Homework/normaluser/main_participate.jsp">Participate</a></li>
-				<li><a href="/Homework/normaluser/main_submit.jsp">Submit</a></li>
+				<li><a href="/Homework/normaluser/main_host.jsp">Host
+						Projects</a></li>
+				<li><a href="/Homework/normaluser/main_participate.jsp">Participate
+						Projects</a></li>
+				<li><a href="/Homework/normaluser/main_submit.jsp">SubmittedItems</a></li>
 				<li class="active"><a
-					href="/Homework/normaluser/main_check.jsp">Check</a></li>
+					href="/Homework/normaluser/main_check.jsp">NeedToCheck</a></li>
 			</ul>
 		</div>
 		<div class="content">
@@ -76,10 +77,10 @@
 					<tr>
 						<th>SubmitItemID</th>
 						<th>ProjectID</th>
-						<th>Name</th>
+						<th>UserName</th>
 						<th>Item</th>
 						<th>SubmitMoney</th>
-						<th>check</th>
+						<th>Check</th>
 					</tr>
 					<%
 						for (int i = 0; i < 6; i++) {
@@ -165,7 +166,7 @@
 		</div>
 		<!-- Site footer -->
 		<div class="footer">
-			<p>© xxd 2013</p>
+			<p style="text-align: center">© xxd 2013</p>
 		</div>
 	</div>
 </body>

@@ -20,20 +20,17 @@
 		<div class="masthead">
 			<h3 class="text-muted">Welcome!</h3>
 			<ul class="nav nav-justified">
-				<li class="active"><a href="/Homework/normaluser/main.jsp">Home</a></li>
-				<li><a href="/Homework/normaluser/main_host.jsp">Host</a></li>
-				<li><a href="/Homework/normaluser/main_participate.jsp">Participate</a></li>
-				<li><a href="/Homework/normaluser/main_submit.jsp">Submit</a></li>
-				<li><a href="/Homework/normaluser/main_check.jsp">Check</a></li>
+				<li><a href="/Homework/normaluser/main_host.jsp">Host
+						Projects</a></li>
+				<li><a href="/Homework/normaluser/main_participate.jsp">Participate
+						Projects</a></li>
+				<li><a href="/Homework/normaluser/main_submit.jsp">SubmittedItems</a></li>
+				<li><a href="/Homework/normaluser/main_check.jsp">NeedToCheck</a></li>
 			</ul>
 		</div>
-		<div class="content">
-			<h1>This is the normal user 's main page</h1>
-		</div>
-
 		<!-- Site footer -->
 		<div class="footer">
-			<p>© xxd 2013</p>
+			<p style="text-align: center">© xxd 2013</p>
 		</div>
 
 	</div>

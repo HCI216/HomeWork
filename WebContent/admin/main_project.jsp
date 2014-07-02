@@ -4,6 +4,7 @@
 <%@page import="java.util.*"%>
 <%@page import="xxd.nju.homework.dao.UserDao"%>
 <%@page import="xxd.nju.homework.dao.impl.UserDaoImpl"%>
+<%@page import="xxd.nju.homework.model.UserBean"%>
 <html lang="zh-cn">
 
 <%
@@ -17,6 +18,9 @@
 	int pageNum = projectList.size() / 6;
 	if (projectList.size() % 6 != 0)
 		pageNum++;
+	
+	UserBean result = (UserBean) request.getSession().getAttribute(
+			"result");
 %>
 
 <head>
@@ -26,23 +30,26 @@
 <meta name="description" content="">
 <meta name="author" content="">
 
-<title>Homework</title>
+<title>Manage Project</title>
 
 <link href="../css/bootstrap.css" rel="stylesheet">
 <link href="../css/admin-main.css" rel="stylesheet">
 <style type="text/css"></style>
+
+
+
 </head>
 
-<body>
+<body style="background:#DCDCDC;">
 
 	<div class="container">
 
 		<div class="masthead">
-			<h3 class="text-muted">Welcome!</h3>
+			<h3 class="text-muted">Welcome! <%= result.getUsername() %> ~</h3>
 			<ul class="nav nav-justified">
-				<li><a href="/Homework/admin/main.jsp">Home</a></li>
-				<li><a href="/Homework/admin/main_user.jsp" class="active">User</a></li>
-				<li class="active"><a href="/Homework/admin/main_project.jsp">Project</a></li>
+				<!-- <li><a href="/Homework/admin/main.jsp">Home</a></li> -->
+				<li><a href="/Homework/admin/main_user.jsp" class="active">Manage User</a></li>
+				<li class="active"><a href="/Homework/admin/main_project.jsp">Manage Project</a></li>
 			</ul>
 		</div>
 
@@ -50,7 +57,7 @@
 		<div class="up_content">
 			<button type="button" class="btn btn-default btn-lg" 
 				onclick="window.location.href='/Homework/admin/main_addProject.jsp'"
-				style="float: right">ADD PROJECT</button>
+				style="float: right;color:#6A5ACD">ADD PROJECT</button>
 		</div>
 
 		<div class="content">
@@ -66,16 +73,21 @@
 				%>
 				<table class="table table-bordered table-striped">
 					<tr>
-						<th>projectID</th>
-						<th>HostName</th>
-						<th>Budget</th>
-						<th>Date</th>
-						<th>State</th>
+						<th rowspan="2">ProjectID</th>
+						<th rowspan="2">HostID</th>
+						<th rowspan="2">Budget</th>
+						<th rowspan="2">EndDate</th>
+						<th rowspan="2">State</th>
+						<th colspan="3">SubmitItems</th>
+						<th rowspan="2">Delete</th>
+						<th rowspan="2">Modify</th>
+					</tr>
+					<tr>
+						
 						<th>Food</th>
 						<th>Traffic</th>
 						<th>Device</th>
-						<th>Delete</th>
-						<th>Modify</th>
+						
 					</tr>
 					<%
 						for (int i = 0; i < 6; i++) {
@@ -86,7 +98,7 @@
 					%>
 					<tr>
 						<td><%=project.getProjectID()%></td>
-						<td><%=userDao.getNameByID(project.getProjectHostID())%></td>
+						<td><%=project.getProjectHostID()%></td>
 						<td><%=project.getBudget()%></td>
 						<td><%=project.getProjectDate()%></td>
 						<td><%=project.getProjectState()%></td>
@@ -151,7 +163,7 @@
 
 		<!-- Site footer -->
 		<div class="footer">
-			<p>© xxd 2013</p>
+			<p style="text-align:center">© xxd 2013</p>
 		</div>
 
 	</div>

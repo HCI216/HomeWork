@@ -26,7 +26,7 @@
 <meta name="description" content="">
 <meta name="author" content="">
 
-<title>Homework</title>
+<title>Project Info</title>
 
 <link href="../css/bootstrap.css" rel="stylesheet">
 <link href="../css/admin-main.css" rel="stylesheet">
@@ -40,11 +40,10 @@
 		<div class="masthead">
 			<h3 class="text-muted">Welcome!</h3>
 			<ul class="nav nav-justified">
-				<li><a href="/Homework/financer/main.jsp">Home</a></li>
-				<li><a href="/Homework/financer/main_user.jsp">User</a></li>
+				<li><a href="/Homework/financer/main_user.jsp">User Info</a></li>
 				<li class="active"><a
-					href="/Homework/financer/main_project.jsp">Project</a></li>
-				<li><a href="/Homework/financer/main_check.jsp">Check</a></li>
+					href="/Homework/financer/main_project.jsp">Project Info</a></li>
+				<li><a href="/Homework/financer/main_check.jsp">NeedToCheck</a></li>
 			</ul>
 		</div>
 
@@ -62,11 +61,15 @@
 				%>
 				<table class="table table-bordered table-striped">
 					<tr>
-						<th>projectID</th>
-						<th>HostName</th>
-						<th>Budget</th>
-						<th>Date</th>
-						<th>State</th>
+						<th rowspan="2">projectID</th>
+						<th rowspan="2">HostName</th>
+						<th rowspan="2">Budget</th>
+						<th rowspan="2">EndDate</th>
+						<th rowspan="2">State</th>
+						<th colspan="3">SubmitItems</th>
+					</tr>
+
+					<tr>
 						<th>Food</th>
 						<th>Transportation</th>
 						<th>Device</th>
@@ -80,7 +83,7 @@
 					%>
 					<tr>
 						<td><%=project.getProjectID()%></td>
-						<td><%=userDao.getNameByID(project.getProjectHostID())%></td>
+						<td><%=userDao.getNameByID(project.getProjectHostID())%>(<%=project.getProjectHostID()%>)</td>
 						<td><%=project.getBudget()%></td>
 						<td><%=project.getProjectDate()%></td>
 						<td><%=project.getProjectState()%></td>

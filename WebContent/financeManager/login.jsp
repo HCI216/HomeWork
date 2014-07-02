@@ -6,7 +6,7 @@
 <meta name="description" content="">
 <meta name="author" content="">
 
-<title>Homework</title>
+<title>Finance Manager</title>
 
 <link href="../css/bootstrap.css" rel="stylesheet">
 <link href="../css/signin.css" rel="stylesheet">
@@ -23,7 +23,7 @@
 			<button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
 		</form>
 		<div class="footer">
-        <p>© xxd 2014</p>
+        <p style="text-align:center">© xxd 2014</p>
       </div>
 	</div>
 

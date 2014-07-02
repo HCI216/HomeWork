@@ -21,11 +21,10 @@
 	SubmitItemDao submitItemDao = new SubmitItemDaoImpl();
 	UserDao userDao = new UserDaoImpl();
 	ParticipateDao participateDao = new ParticipateDaoImpl();
-	ArrayList<SubmitItemBean> items = submitItemDao
-			.getAllSubmitItem();
+	ArrayList<SubmitItemBean> items = submitItemDao.getAllSubmitItem();
 	ArrayList<SubmitItemBean> itemList = new ArrayList<SubmitItemBean>();
-	for (int i = 0;i<items.size();i++){
-		if(items.get(i).getSubmitState().equals("FINANCER")){
+	for (int i = 0; i < items.size(); i++) {
+		if (items.get(i).getSubmitState().equals("FINANCER")) {
 			itemList.add(items.get(i));
 		}
 	}
@@ -45,7 +44,7 @@
 <meta name="description" content="">
 <meta name="author" content="">
 
-<title>Homework</title>
+<title>Check</title>
 
 <link href="../css/bootstrap.css" rel="stylesheet">
 <link href="../css/admin-main.css" rel="stylesheet">
@@ -58,11 +57,10 @@
 		<div class="masthead">
 			<h3 class="text-muted">Welcome!</h3>
 			<ul class="nav nav-justified">
-				<li><a href="/Homework/financer/main.jsp">Home</a></li>
-				<li><a
-					href="/Homework/financer/main_user.jsp">User</a></li>
-				<li><a href="/Homework/financer/main_project.jsp">Project</a></li>
-				<li class="active"><a href="/Homework/financer/main_check.jsp">Check</a></li>
+				<li><a href="/Homework/financer/main_user.jsp">User Info</a></li>
+				<li><a href="/Homework/financer/main_project.jsp">Project
+						Info</a></li>
+				<li class="active"><a href="/Homework/financer/main_check.jsp">NeedToCheck</a></li>
 			</ul>
 		</div>
 		<div class="content">
@@ -79,7 +77,7 @@
 					<tr>
 						<th>SubmitItemID</th>
 						<th>ProjectID</th>
-						<th>Name</th>
+						<th>HostName</th>
 						<th>Item</th>
 						<th>SubmitMoney</th>
 						<th>confirm</th>
@@ -103,7 +101,7 @@
 					<tr>
 						<td><%=item.getSubmitItemID()%></td>
 						<td><%=projectID%></td>
-						<td><%=userName%></td>
+						<td><%=userName%>(<%=userID%>)</td>
 						<td><%=item.getSubmitItem()%></td>
 						<td><%=item.getUseMoney()%></td>
 						<%

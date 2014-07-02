@@ -1,39 +1,50 @@
-<html lang="zh-cn"><head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="author" content="">
+<html lang="zh-cn">
+<%@page import="xxd.nju.homework.dao.UserDao"%>
+<%@page import="xxd.nju.homework.dao.impl.UserDaoImpl"%>
+<%@page import="xxd.nju.homework.model.UserBean"%>
+<%@page import="java.util.*"%>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="">
+<meta name="author" content="">
 
-    <title>Homework</title>
+<title>Administrator HomePage</title>
 
-    <link href="../css/bootstrap.css" rel="stylesheet">
-    <link href="../css/admin-main.css" rel="stylesheet">
-  <style type="text/css"></style></head>
+<link href="../css/bootstrap.css" rel="stylesheet">
+<link href="../css/admin-main.css" rel="stylesheet">
+<style type="text/css"></style>
+</head>
 
-  <body>
+<body style="background:#DCDCDC;">
+	<%
+		UserBean result = (UserBean) request.getSession().getAttribute(
+				"result");
+	%>
 
-    <div class="container">
+	<div class="container">
 
-      <div class="masthead">
-        <h3 class="text-muted">Welcome!</h3>
-        <ul class="nav nav-justified">
-          <li class="active"><a href="/Homework/admin/main.jsp">Home</a></li>
-          <li><a href="/Homework/admin/main_user.jsp">User</a></li>
-          <li><a href="/Homework/admin/main_project.jsp">Project</a></li>
-        </ul>
-      </div>
-      <div class="content">
-         <h1>
-              This is the admin 's main page
-         </h1>
-      </div>
+		<div class="masthead">
+			<h3 class="text-muted">
+				Welcome! 
+				<%=result.getUsername()%> ~
+			</h3>
+			<ul class="nav nav-justified">
+				<!-- <li class="active"><a href="/Homework/admin/main.jsp">Home</a></li> -->
+				<li><a href="/Homework/admin/main_user.jsp">Manage User</a></li>
+				<li><a href="/Homework/admin/main_project.jsp">Manage
+						Project</a></li>
+			</ul>
+		</div>
+		<div class="content"></div>
 
-      <!-- Site footer -->
-      <div class="footer">
-        <p>© xxd 2013</p>
-      </div>
+		<!-- Site footer -->
+		<div class="footer">
+			<p style="text-align: center">© xxd 2013</p>
+		</div>
 
-    </div> 
+	</div>
 
-</body></html>
+</body>
+</html>

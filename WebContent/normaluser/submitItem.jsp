@@ -13,7 +13,7 @@
 <meta name="description" content="">
 <meta name="author" content="">
 
-<title>Homework</title>
+<title>SubmitItem</title>
 
 <link href="../css/bootstrap.css" rel="stylesheet">
 <link href="../css/signin.css" rel="stylesheet">
@@ -24,7 +24,7 @@
 
 	<div class="container">
 		<form class="form-signin" method="post"
-			action="/Homework/normaluser/submit?submitproject=<%=project.getProjectID() %>">
+			action="/Homework/normaluser/submit?submitproject=<%=project.getProjectID()%>">
 			<%
 				if (project.getSubmitFood().equals("NO")) {
 			%>
@@ -44,25 +44,26 @@
 
 			<%
 				}
-			    if(project.getSubmitTransportation().equals("NO")){
+				if (project.getSubmitTransportation().equals("NO")) {
 			%>
 			<div class="form-group">
 				<label for="transportation">Transportation</label> <input
 					id="transportation" type="text" name="transportation"
-					class="form-control" placeholder="input the submit money" readonly="readonly">
+					class="form-control" placeholder="input the submit money"
+					readonly="readonly">
 			</div>
 			<%
-			    }else{
+				} else {
 			%>
-			
+
 			<div class="form-group">
 				<label for="transportation">Transportation</label> <input
 					id="transportation" type="text" name="transportation"
 					class="form-control" placeholder="input the submit money">
 			</div>
 			<%
-			    }
-			    if(project.getSubmitDevice().equals("NO")){
+				}
+				if (project.getSubmitDevice().equals("NO")) {
 			%>
 			<div class="form-group">
 				<label for="device">Device</label> <input id="device" type="text"
@@ -70,21 +71,26 @@
 					placeholder="input the submit money" readonly="readonly">
 			</div>
 			<%
-			    }else{
+				} else {
 			%>
-			
+
 			<div class="form-group">
 				<label for="device">Device</label> <input id="device" type="text"
 					name="device" class="form-control"
 					placeholder="input the submit money">
 			</div>
 			<%
-			    }
+				}
 			%>
 			<button class="btn btn-lg btn-primary btn-block" type="submit">Submit</button>
 		</form>
+
+		<button class="btn btn-lg btn-primary btn-block form-signin"
+			style="height: 45px; width: 300px;"
+			onClick="location.href='main_participate.jsp'">Back</button>
+
 		<div class="footer">
-			<p>© xxd 2014</p>
+			<p style="text-align: center">© xxd 2014</p>
 		</div>
 	</div>
 

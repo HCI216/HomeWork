@@ -21,7 +21,7 @@
 <meta name="description" content="">
 <meta name="author" content="">
 
-<title>Homework</title>
+<title>User Info</title>
 
 <link href="../css/bootstrap.css" rel="stylesheet">
 <link href="../css/admin-main.css" rel="stylesheet">
@@ -35,11 +35,11 @@
 		<div class="masthead">
 			<h3 class="text-muted">Welcome!</h3>
 			<ul class="nav nav-justified">
-				<li><a href="/Homework/financer/main.jsp">Home</a></li>
-				<li class="active"><a
-					href="/Homework/financer/main_user.jsp">User</a></li>
-				<li><a href="/Homework/financer/main_project.jsp">Project</a></li>
-				<li><a href="/Homework/financer/main_check.jsp">Check</a></li>
+				<li class="active"><a href="/Homework/financer/main_user.jsp">User
+						Info</a></li>
+				<li><a href="/Homework/financer/main_project.jsp">Project
+						Info</a></li>
+				<li><a href="/Homework/financer/main_check.jsp">NeedToCheck</a></li>
 			</ul>
 		</div>
 		<div class="content">
@@ -56,7 +56,7 @@
 					<tr>
 						<th>UserID</th>
 						<th>UserName</th>
-						<th>CardNumber</th>
+						<th>BankCardNumber</th>
 						<th>Position</th>
 					</tr>
 					<%
@@ -122,7 +122,7 @@
 		</div>
 		<!-- Site footer -->
 		<div class="footer">
-			<p>© xxd 2013</p>
+			<p style="text-align: center">© xxd 2013</p>
 		</div>
 
 	</div>

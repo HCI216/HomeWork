@@ -17,6 +17,7 @@ public class AddParticipateAction extends BaseAction {
 	private static final long serialVersionUID = -1362409623013882064L;
 
 	private ParticipateService participateService;
+
 	
 	public String execute() throws Exception{
 		

@@ -25,7 +25,7 @@
 <meta name="description" content="">
 <meta name="author" content="">
 
-<title>Homework</title>
+<title>Host Project</title>
 
 <link href="../css/bootstrap.css" rel="stylesheet">
 <link href="../css/admin-main.css" rel="stylesheet">
@@ -39,11 +39,12 @@
 		<div class="masthead">
 			<h3 class="text-muted">Welcome!</h3>
 			<ul class="nav nav-justified">
-				<li><a href="/Homework/normaluser/main.jsp">Home</a></li>
-				<li class="active"><a href="/Homework/normaluser/main_host.jsp">Host</a></li>
-				<li><a href="/Homework/normaluser/main_participate.jsp">Participate</a></li>
-				<li><a href="/Homework/normaluser/main_submit.jsp">Submit</a></li>
-				<li><a href="/Homework/normaluser/main_check.jsp">Check</a></li>
+				<li class="active"><a href="/Homework/normaluser/main_host.jsp">Host
+						Projects</a></li>
+				<li><a href="/Homework/normaluser/main_participate.jsp">Participate
+						Projects</a></li>
+				<li><a href="/Homework/normaluser/main_submit.jsp">SubmittedItems</a></li>
+				<li><a href="/Homework/normaluser/main_check.jsp">NeedToCheck</a></li>
 			</ul>
 		</div>
 		<div class="content">
@@ -58,14 +59,17 @@
 				%>
 				<table class="table table-bordered table-striped">
 					<tr>
-						<th>ProjectID</th>
-						<th>Budget</th>
-						<th>Date</th>
-						<th>State</th>
+						<th rowspan="2">ProjectID</th>
+						<th rowspan="2">Budget</th>
+						<th rowspan="2">EndDate</th>
+						<th rowspan="2">State</th>
+						<th colspan="3">SubmitItems</th>
+						<th rowspan="2">AddUser</th>
+					</tr>
+					<tr>
 						<th>Food</th>
 						<th>Traffic</th>
 						<th>Device</th>
-						<th>AddUser</th>
 					</tr>
 					<%
 						for (int i = 0; i < 6; i++) {
@@ -82,7 +86,8 @@
 						<td><%=project.getSubmitFood()%></td>
 						<td><%=project.getSubmitTransportation()%></td>
 						<td><%=project.getSubmitDevice()%></td>
-						<td width="10px"><button type="button" class="btn btn-info btn-lg"
+						<td width="10px"><button type="button"
+								class="btn btn-info btn-lg"
 								onclick="window.location.href='/Homework/normaluser/main_addParticipate.jsp?projectID=<%=project.getProjectID()%>'">ADD</button></td>
 					</tr>
 					<%
@@ -137,7 +142,7 @@
 
 		<!-- Site footer -->
 		<div class="footer">
-			<p>© xxd 2013</p>
+			<p style="text-align: center">© xxd 2013</p>
 		</div>
 
 	</div>

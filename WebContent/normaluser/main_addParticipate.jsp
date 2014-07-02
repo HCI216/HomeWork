@@ -5,11 +5,11 @@
 <%@page import="java.util.*"%>
 <%
 	String userId = (String) request.getSession().getAttribute(
-			"loginNormalUser");
+	"loginNormalUser");
 	UserDao userDao = new UserDaoImpl();
 	String projectID = request.getParameter("projectID");
 	ArrayList<UserBean> userList = userDao.getUserNotTakePart(
-			projectID, userId);
+	projectID, userId);
 %>
 <head>
 <meta charset="utf-8">
@@ -18,22 +18,38 @@
 <meta name="description" content="">
 <meta name="author" content="">
 
-<title>Homework</title>
+<title>Add User</title>
 
 <link href="../css/bootstrap.css" rel="stylesheet">
 <link href="../css/signin.css" rel="stylesheet">
 <style type="text/css"></style>
+
+<script>
+	function validation() {
+		if (document.getElementById("GiveMoney").value == "") {
+			alert("please fill the giveMoney!");
+			document.getElementById("GiveMoney").focus();
+			return false;
+		} else {
+			return true;
+		}
+	}
+</script>
 </head>
 
 <body>
 
 	<div class="container">
 		<form class="form-signin" method="post"
+			onSubmit="return validation();"
 			action="/Homework/normaluser/addParticipate?projectID=<%=projectID%>">
 			<%
 				if (userList.size() == 0) {
 			%>
-			<h1>No User is Available</h1>
+			<!-- TODO -->
+			<div>
+				<img src="../image/noResults.jpg" width="100%" height="200px" />
+			</div>
 			<%
 				} else {
 			%>
@@ -58,14 +74,26 @@
 					}
 				%>
 			</div>
+			<%
+				if (userList.size() != 0) {
+			%>
+
 			<div class="form-group">
 				<label for="GiveMoney">GiveMoney</label> <input class="form-control"
 					type="text" name="giveMoney" id="GiveMoney" />
 			</div>
 			<button class="btn btn-lg btn-primary btn-block" type="submit">ADD</button>
+			<%
+				}
+			%>
 		</form>
+
+		<button class="btn btn-lg btn-primary btn-block form-signin"
+			style="height: 45px; width: 100px;"
+			onClick="location.href='main_host.jsp'">Back</button>
+
 		<div class="footer">
-			<p>© xxd 2014</p>
+			<p style="text-align: center">© xxd 2014</p>
 		</div>
 	</div>
 
